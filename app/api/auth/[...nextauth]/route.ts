@@ -4,7 +4,7 @@ import GithubProvider from 'next-auth/providers/github'
 import { SupabaseAdapter } from '@next-auth/supabase-adapter'
 import { User } from '@/app/types'
 
-export const authOptions: NextAuthOptions = {
+ const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
@@ -28,4 +28,4 @@ export const authOptions: NextAuthOptions = {
 
 const handler = NextAuth(authOptions)
 
-export default handler
+export { handler as GET, handler as POST }
